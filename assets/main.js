@@ -3,7 +3,8 @@
 const rollButton = document.querySelector(".roll-button");
 const resetButton = document.querySelector(".reset-button");
 const showRollsButton = document.querySelector(".show-rolls-button");
-const dieRolls = [];
+let dieRolls = [];
+const listOfRolls = document.querySelector(".list-of-rolls");
 let totalRoll = document.querySelector(".total-value");
 let numberOfRolls = document.querySelector(".number-of-rolls");
 let index = 1;
@@ -34,14 +35,18 @@ resetButton.addEventListener("click", function () {
   index = 1;
   currentRoll = 0;
   sumofRolls = 0;
-  numberOfRolls.value = 0;
+  numberOfRolls.value = "";
   totalRoll.innerHTML = 0;
+  listOfRolls.innerHTML = "";
+  dieRolls = [];
 });
 
 //event listener for the show rolls button to display the value of each roll from the array that is storing the data
 showRollsButton.addEventListener("click", function () {
-  let counter = 1;
-  while (counter <= numberOfRolls) {
+  let counter = 0;
+  while (counter < numberOfRolls.value) {
+    listOfRolls.innerHTML =
+      listOfRolls.innerHTML + "<li>" + dieRolls[counter] + "</li>";
     counter++;
   }
 });
