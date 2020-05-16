@@ -3,6 +3,7 @@
 const rollButton = document.querySelector(".roll-button");
 const resetButton = document.querySelector(".reset-button");
 const showRollsButton = document.querySelector(".show-rolls-button");
+let numOfSides = document.querySelector(".number-of-sides-input");
 let dieRolls = [];
 const listOfRolls = document.querySelector(".list-of-rolls");
 let totalRoll = document.querySelector(".total-value");
@@ -17,9 +18,10 @@ rollButton.addEventListener("click", function () {
   numberOfRolls = document.querySelector(".number-of-rolls");
   index = 1;
   while (index <= numberOfRolls.value) {
-    currentRoll = Math.floor(Math.random() * 6 + 1);
+    currentRoll = Math.floor(Math.random() * numOfSides.value + 1);
     console.log("Roll " + index + " = " + currentRoll);
     //also add the value of each roll to get the total value of the rolls and display it in the 'total-value' class
+
     sumofRolls = sumofRolls + currentRoll;
     index++;
     //pushing each roll's value to the array 'die rolls'
@@ -39,6 +41,7 @@ resetButton.addEventListener("click", function () {
   totalRoll.innerHTML = 0;
   listOfRolls.innerHTML = "";
   dieRolls = [];
+  numOfSides.value = "";
 });
 
 //event listener for the show rolls button to display the value of each roll from the array that is storing the data
