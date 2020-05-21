@@ -48,8 +48,25 @@ resetButton.addEventListener("click", function () {
 showRollsButton.addEventListener("click", function () {
   let counter = 0;
   while (counter < numberOfRolls.value) {
-    listOfRolls.innerHTML =
-      listOfRolls.innerHTML + "<li>" + dieRolls[counter] + "</li>";
+    if (dieRolls[counter] === 1) {
+      listOfRolls.innerHTML =
+        listOfRolls.innerHTML +
+        "<li style='color:red;' >" +
+        dieRolls[counter] +
+        "</li>";
+    } else {
+      if (dieRolls[counter] == numOfSides.value) {
+        listOfRolls.innerHTML =
+          listOfRolls.innerHTML +
+          "<li style='color:green;' >" +
+          dieRolls[counter] +
+          "</li>";
+      } else {
+        listOfRolls.innerHTML =
+          listOfRolls.innerHTML + "<li>" + dieRolls[counter] + "</li>";
+      }
+    }
+
     counter++;
   }
 });
