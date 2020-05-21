@@ -48,6 +48,7 @@ resetButton.addEventListener("click", function () {
 showRollsButton.addEventListener("click", function () {
   let counter = 0;
   while (counter < numberOfRolls.value) {
+    //first checking if the roll was the lowest possible value and styling the li to represent the low roll
     if (dieRolls[counter] === 1) {
       listOfRolls.innerHTML =
         listOfRolls.innerHTML +
@@ -55,6 +56,7 @@ showRollsButton.addEventListener("click", function () {
         dieRolls[counter] +
         "</li>";
     } else {
+      //then checking if the roll was the highest possible value and styling the li to represent the high roll
       if (dieRolls[counter] == numOfSides.value) {
         listOfRolls.innerHTML =
           listOfRolls.innerHTML +
@@ -62,6 +64,7 @@ showRollsButton.addEventListener("click", function () {
           dieRolls[counter] +
           "</li>";
       } else {
+        //then if the roll was not the highest or the lowest possible value, there is no styling and li the is added
         listOfRolls.innerHTML =
           listOfRolls.innerHTML + "<li>" + dieRolls[counter] + "</li>";
       }
