@@ -46,9 +46,11 @@ resetButton.addEventListener("click", function () {
 
 //event listener for the show rolls button to display the value of each roll from the array that is storing the data
 showRollsButton.addEventListener("click", function () {
+  listOfRolls.innerHTML = "";
   let counter = 0;
-  while (counter < numberOfRolls.value) {
+  while (counter < dieRolls.length) {
     //first checking if the roll was the lowest possible value and styling the li to represent the low roll
+
     if (dieRolls[counter] === 1) {
       listOfRolls.innerHTML =
         listOfRolls.innerHTML +
